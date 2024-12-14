@@ -7,11 +7,10 @@
     <title>Social Hub</title>
     <!-- Google Fonts'tan Dancing Script fontunu ekliyoruz -->
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <style>
         body {
             font-family: 'Dancing Script', cursive;
-            /* Calligraphy fontu tüm yazılara uygulanıyor */
             background-image: url(https://i.pinimg.com/originals/12/b2/3a/12b23a7752e8a7a4464c1ff5e596237f.gif);
             background-repeat: no-repeat;
             background-size: 100%;
@@ -42,19 +41,14 @@
             background: linear-gradient(45deg, #007fff, #1e90ff);
             opacity: 50%;
             z-index: -1;
-            /* Katmanı arka planda tutuyoruz */
             border-radius: 20px;
-            /* Köşeleri yuvarlıyoruz */
             padding-bottom: 500px;
-            /* İçerikle araya boşluk ekliyoruz */
         }
 
         h1 {
             margin-bottom: 50px;
-            /* Başlığın altında daha fazla boşluk */
             color: #ffffff;
             font-size: 4rem;
-            /* Fontu büyütüyoruz */
             letter-spacing: 2px;
         }
 
@@ -63,7 +57,6 @@
             justify-content: space-between;
             flex-wrap: wrap;
             gap: 20px;
-            /* İkonlar arasındaki boşluğu küçülttük */
             margin-top: 30px;
         }
 
@@ -71,7 +64,6 @@
             display: flex;
             flex-direction: column;
             gap: 15px;
-            /* İkonlar arasındaki boşluğu biraz daha küçülttük */
             width: 45%;
             align-items: center;
         }
@@ -86,7 +78,6 @@
 
         .social-icons img {
             width: 55px;
-            /* İkonların boyutunu biraz küçülttük */
             height: 55px;
             transition: all 0.3s ease;
         }
@@ -94,7 +85,6 @@
         .social-icons p {
             margin-top: 10px;
             font-size: 1.2rem;
-            /* Yazı fontunu biraz büyüttük */
             color: #ffffff;
             margin-bottom: 0;
             transition: all 0.3s ease;
@@ -103,12 +93,58 @@
         /* Hover efekti */
         .social-icons a:hover img {
             transform: scale(1.2);
-            /* İkonu büyütür */
         }
 
         .social-icons a:hover p {
             transform: scale(1.2);
-            /* Yazıyı büyütür */
+        }
+
+        /* Mobil uyumlu düzenlemeler */
+        @media (max-width: 768px) {
+            .container {
+                max-width: 90%;
+                margin-top: 0;
+            }
+
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            .social-icons {
+                gap: 15px; /* Daha sık yerleşim */
+                justify-content: center;
+            }
+
+            .column {
+                width: 100%;
+                gap: 20px;
+                align-items: center;
+            }
+
+            .social-icons img {
+                width: 45px; /* Mobilde ikon boyutunu biraz küçülttük */
+                height: 45px;
+            }
+
+            .social-icons p {
+                font-size: 1rem; /* Mobilde yazı boyutunu küçülttük */
+            }
+        }
+
+        /* Daha küçük cihazlar için */
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 2rem; /* Başlık boyutunu daha da küçültüyoruz */
+            }
+
+            .social-icons img {
+                width: 40px; /* İkon boyutunu küçük ekranlarda daha da küçültüyoruz */
+                height: 40px;
+            }
+
+            .social-icons p {
+                font-size: 0.9rem; /* Yazıyı küçültüyoruz */
+            }
         }
     </style>
 </head>
@@ -121,8 +157,7 @@
         <div class="social-icons animate__bounceIn">
             <div class="column">
                 <a href="https://www.instagram.com/bedirhan_kymk_/" target="_blank">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Instagram_logo_2022.svg/600px-Instagram_logo_2022.svg.png"
-                        alt="Instagram">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Instagram_logo_2022.svg/600px-Instagram_logo_2022.svg.png" alt="Instagram">
                     <p>Instagram</p>
                 </a>
                 <a href="https://www.tiktok.com/@bedirhan_kymk_" target="_blank">
@@ -130,16 +165,14 @@
                     <p>TikTok</p>
                 </a>
                 <a href="https://open.spotify.com/user/e02o4n09r85plso05jndp7d24" target="_blank">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/1/19/Spotify_logo_without_text.svg"
-                        alt="Spotify">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/1/19/Spotify_logo_without_text.svg" alt="Spotify">
                     <p>Spotify</p>
                 </a>
             </div>
 
             <div class="column">
                 <a href="https://www.youtube.com/@Bedirhan_kymk_" target="_blank">
-                    <img src="https://www.svgrepo.com/show/343537/youtube-player-multimedia-video-communication-interaction.svg"
-                        alt="YouTube">
+                    <img src="https://www.svgrepo.com/show/343537/youtube-player-multimedia-video-communication-interaction.svg" alt="YouTube">
                     <p>YouTube</p>
                 </a>
                 <a href="https://discord.com/invite/ncmNMbNtdX" target="_blank">
