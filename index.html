@@ -1,8 +1,11 @@
-<html lang="en"><head>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Social Hub</title>
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <style>
         body {
@@ -49,17 +52,16 @@
 
         .social-icons {
             display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 20px;
+            flex-direction: column;
+            justify-content: center;
+            gap: 30px;
             margin-top: 30px;
         }
 
-        .column {
+        .social-icons .group {
             display: flex;
             flex-direction: column;
             gap: 15px;
-            width: 45%;
             align-items: center;
         }
 
@@ -110,10 +112,8 @@
                 justify-content: center;
             }
 
-            /* 2'li ikonlar için düzenleme - Mobilde */
-            .social-icons .column {
-                width: 45%; /* Mobilde her ikon için 2'li sıralama */
-                margin-bottom: 15px; /* İkonlar arasına boşluk ekle */
+            .social-icons .group {
+                width: 100%; /* Her grup için tam genişlik */
             }
 
             .social-icons img {
@@ -154,30 +154,16 @@
             }
         }
     </style>
-<link rel="stylesheet" type="text/css" href="chrome-extension://fgcpkofcgicoihkkpfmbjgllkgkbpkpe/static/css/content-script.css"><style>@font-face {
-              font-family: 'Open Sans Regular';
-              font-style: normal;
-              font-weight: 400;
-              src: url('chrome-extension://gkkdmjjodidppndkbkhhknakbeflbomf/fonts/open_sans/open-sans-v18-latin-regular.woff');
-          }</style><style>@font-face {
-              font-family: 'Open Sans Bold';
-              font-style: normal;
-              font-weight: 800;
-              src: url('chrome-extension://gkkdmjjodidppndkbkhhknakbeflbomf/fonts/open_sans/OpenSans-Bold.woff');
-          }</style><style>@font-face {
-              font-family: 'Open Sans ExtraBold';
-              font-style: normal;
-              font-weight: 800;
-              src: url('chrome-extension://gkkdmjjodidppndkbkhhknakbeflbomf/fonts/open_sans/open-sans-v18-latin-800.woff');
-          }</style></head>
+</head>
 
-<body cz-shortcut-listen="true">
+<body>
     <div class="container">
         <div class="background-layer"></div>
         <h1>Social Hub</h1>
 
         <div class="social-icons animate__bounceIn">
-            <div class="column">
+            <!-- Group 1: Instagram, TikTok, Spotify -->
+            <div class="group">
                 <a href="https://www.instagram.com/bedirhan_kymk_/" target="_blank">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Instagram_logo_2022.svg/600px-Instagram_logo_2022.svg.png" alt="Instagram">
                     <p>Instagram</p>
@@ -186,48 +172,28 @@
                     <img src="https://www.svgrepo.com/show/303260/tiktok-logo-logo.svg" alt="TikTok">
                     <p>TikTok</p>
                 </a>
-    <a href="https://discord.com/invite/ncmNMbNtdX" target="_blank">
-                    <img src="https://www.svgrepo.com/show/353655/discord-icon.svg" alt="Discord">
-                    <p>Discord</p>
-                </a>
-            </div>
-            <div class="column">
                 <a href="https://open.spotify.com/user/e02o4n09r85plso05jndp7d24" target="_blank">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/1/19/Spotify_logo_without_text.svg" alt="Spotify">
                     <p>Spotify</p>
                 </a>
+            </div>
+            <!-- Group 2: YouTube, Discord, Twitch -->
+            <div class="group">
                 <a href="https://www.youtube.com/@Bedirhan_kymk_" target="_blank">
                     <img src="https://www.svgrepo.com/show/343537/youtube-player-multimedia-video-communication-interaction.svg" alt="YouTube">
                     <p>YouTube</p>
                 </a>
-    <a href="https://www.twitch.tv/bedirhan_kymk_" target="_blank">
+                <a href="https://discord.com/invite/ncmNMbNtdX" target="_blank">
+                    <img src="https://www.svgrepo.com/show/353655/discord-icon.svg" alt="Discord">
+                    <p>Discord</p>
+                </a>
+                <a href="https://www.twitch.tv/bedirhan_kymk_" target="_blank">
                     <img src="https://www.svgrepo.com/show/448251/twitch.svg" alt="Twitch">
                     <p>Twitch</p>
                 </a>
             </div>
-            
-            <div class="column">
-                
-                
-
-            </div>
         </div>
     </div>
+</body>
 
-
-
-<script type="text/javascript" src="chrome-extension://fgcpkofcgicoihkkpfmbjgllkgkbpkpe/static/js/custom-script.js"></script><div id="volume-booster-visusalizer">
-                <div class="sound">
-                    <div class="sound-icon"></div>
-                    <div class="sound-wave sound-wave_one"></div>
-                    <div class="sound-wave sound-wave_two"></div>
-                    <div class="sound-wave sound-wave_three"></div>
-                </div>
-                <div class="segments-box">
-                    <div data-range="1-20" class="segment"><span></span></div>
-                    <div data-range="21-40" class="segment"><span></span></div>
-                    <div data-range="41-60" class="segment"><span></span></div>
-                    <div data-range="61-80" class="segment"><span></span></div>
-                    <div data-range="81-100" class="segment"><span></span></div>
-                </div>
-            </div><div at-magnifier-wrapper=""><div class="at-theme-light"><div class="at-base notranslate" translate="no"><div class="EuwGd" style="top: 0px; left: 0px;"></div></div></div></div></body></html>
+</html>
