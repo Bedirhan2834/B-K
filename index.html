@@ -5,7 +5,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Social Hub</title>
-    <!-- Google Fonts'tan Dancing Script fontunu ekliyoruz -->
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <style>
@@ -13,7 +12,7 @@
             font-family: 'Dancing Script', cursive;
             background-image: url(https://i.pinimg.com/originals/12/b2/3a/12b23a7752e8a7a4464c1ff5e596237f.gif);
             background-repeat: no-repeat;
-            background-size: 100%;
+            background-size: cover;
             color: #ffffff;
             margin: 0;
             padding: 0;
@@ -31,7 +30,6 @@
             position: relative;
         }
 
-        /* Arka plan katmanı ekliyoruz */
         .background-layer {
             position: absolute;
             top: 0;
@@ -111,7 +109,7 @@
             }
 
             .social-icons {
-                gap: 15px; /* Daha sık yerleşim */
+                gap: 15px;
                 justify-content: center;
             }
 
@@ -122,36 +120,48 @@
             }
 
             .social-icons img {
-                width: 45px; /* Mobilde ikon boyutunu biraz küçülttük */
+                width: 45px;
                 height: 45px;
             }
 
             .social-icons p {
-                font-size: 1rem; /* Mobilde yazı boyutunu küçülttük */
+                font-size: 1rem;
+            }
+
+            /* Mobilde farklı bir GIF kullanıyoruz */
+            body {
+                background-image: url(https://i.pinimg.com/originals/68/7d/ea/687dea5ab96e0e41fc0c03a240d0be06.gif);
+                background-size: cover;
+                background-position: center;
             }
         }
 
-        /* Daha küçük cihazlar için */
         @media (max-width: 480px) {
             h1 {
-                font-size: 2rem; /* Başlık boyutunu daha da küçültüyoruz */
+                font-size: 2rem;
             }
 
             .social-icons img {
-                width: 40px; /* İkon boyutunu küçük ekranlarda daha da küçültüyoruz */
+                width: 40px;
                 height: 40px;
             }
 
             .social-icons p {
-                font-size: 0.9rem; /* Yazıyı küçültüyoruz */
+                font-size: 0.9rem;
+            }
+
+            body {
+                background-image: url(https://i.pinimg.com/originals/68/7d/ea/687dea5ab96e0e41fc0c03a240d0be06.gif);
+                background-size: cover;
+                background-position: center;
             }
         }
     </style>
 </head>
 
 <body>
-    <div class="container ">
-        <div class="background-layer "></div> <!-- Arka plan katmanı burada yer alıyor -->
+    <div class="container">
+        <div class="background-layer"></div>
         <h1>Social Hub</h1>
 
         <div class="social-icons animate__bounceIn">
