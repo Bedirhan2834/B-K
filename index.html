@@ -10,9 +10,7 @@
     <style>
         body {
             font-family: 'Dancing Script', cursive;
-            background-image: url(https://i.pinimg.com/originals/12/b2/3a/12b23a7752e8a7a4464c1ff5e596237f.gif);
-            background-repeat: no-repeat;
-            background-size: cover;
+            background-color: #007fff; /* Varsayılan arka plan rengi */
             color: #ffffff;
             margin: 0;
             padding: 0;
@@ -97,6 +95,16 @@
             transform: scale(1.2);
         }
 
+        /* Sadece mobil cihazlar için arka plan resmi */
+        @media (max-width: 768px) {
+            body {
+                background-image: url(https://goldpenguin.org/wp-content/uploads/2024/03/image34-4.png);
+                background-repeat: no-repeat;
+                background-size: cover;
+                background-position: center;
+            }
+        }
+
         /* Mobil uyumlu düzenlemeler */
         @media (max-width: 768px) {
             .container {
@@ -127,12 +135,6 @@
             .social-icons p {
                 font-size: 1rem;
             }
-
-            /* Mobilde GIF yerine düz bir renk ekliyoruz */
-            body {
-                background-color: #007fff; /* Burada mavi bir renk ekliyoruz */
-                background-image: none; /* GIF'i kaldırıyoruz */
-            }
         }
 
         @media (max-width: 480px) {
@@ -147,11 +149,6 @@
 
             .social-icons p {
                 font-size: 0.9rem;
-            }
-
-            body {
-                background-color: #007fff; /* Mobilde düz mavi renk */
-                background-image: none;
             }
         }
     </style>
