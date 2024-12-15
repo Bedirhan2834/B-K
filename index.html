@@ -104,6 +104,63 @@
             color: #ffcc00;
         }
 
+        /* Mobil uyumlu düzenlemeler */
+        @media (max-width: 768px) {
+            .container {
+                max-width: 90%;
+                margin-top: 0;
+            }
+
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            .social-icons {
+                gap: 15px;
+                justify-content: center;
+            }
+
+            .social-icons .column {
+                width: 45%;
+                margin-bottom: 15px;
+            }
+
+            .social-icons img {
+                width: 45px;
+                height: 45px;
+            }
+
+            .social-icons p {
+                font-size: 1rem;
+            }
+
+            body {
+                background-image: url(https://i.pinimg.com/originals/6f/bc/f9/6fbcf93549ebfb8660953e347e3691f4.gif);
+                background-size: cover;
+                background-position: center;
+            }
+
+            /* Profil kartını mobilde gizleme */
+            .profile-card {
+                display: none;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .social-icons img {
+                width: 40px;
+                height: 40px;
+            }
+
+            .social-icons p {
+                font-size: 0.9rem;
+            }
+        }
+
         /* Profil Kartı */
         .profile-card {
             position: absolute;
@@ -117,13 +174,6 @@
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
             font-family: 'Ubuntu', sans-serif;
             max-width: 250px;
-        }
-
-        /* Profil Kartını Mobil Cihazlarda Gizle */
-        @media (max-width: 768px) {
-            .profile-card {
-                display: none;
-            }
         }
 
         .profile-card img {
@@ -144,7 +194,7 @@
             opacity: 0.8;
         }
 
-        /* Saat ve Takvim */
+        /* Saat ve Takvim için tek bir kutu */
         .clock-calendar {
             position: absolute;
             top: 20px;
@@ -156,7 +206,7 @@
             text-align: center;
             font-size: 1rem;
             font-weight: bold;
-            font-family: 'Ubuntu', sans-serif;
+            font-family: 'Ubuntu', sans-serif; /* Ubuntu fontu eklendi */
         }
 
         .clock {
@@ -170,14 +220,12 @@
 </head>
 
 <body>
-    <!-- Ana Container -->
     <div class="container">
         <div class="background-layer"></div>
         <h1 class="animate__animated animate__flip">Social Hub</h1>
 
-        <!-- Sosyal Medya İkonları -->
         <div class="social-icons animate__bounceIn">
-            <!-- İlk Grup -->
+            <!-- İlk grup: Instagram, TikTok, Spotify -->
             <div class="column">
                 <a href="https://www.instagram.com/bedirhan_kymk_/" target="_blank">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Instagram_logo_2022.svg/600px-Instagram_logo_2022.svg.png" alt="Instagram">
@@ -193,7 +241,7 @@
                 </a>
             </div>
 
-            <!-- İkinci Grup -->
+            <!-- İkinci grup: YouTube, Discord, Twitch -->
             <div class="column">
                 <a href="https://www.youtube.com/@Bedirhan_kymk_" target="_blank">
                     <img src="https://www.svgrepo.com/show/343537/youtube-player-multimedia-video-communication-interaction.svg" alt="YouTube">
@@ -218,26 +266,41 @@
         <p>Web Developer | Tech Enthusiast</p>
     </div>
 
-    <!-- Saat ve Takvim -->
+    <!-- Saat ve Takvim için birleşik kutu -->
     <div id="clock-calendar" class="clock-calendar">
         <div id="clock" class="clock"></div>
         <div id="calendar" class="calendar"></div>
     </div>
 
     <script>
+        // Saat ve Takvim Güncelleme Fonksiyonu
         function updateClockAndCalendar() {
             const now = new Date();
+            
+            // Saat
             const hours = String(now.getHours()).padStart(2, '0');
             const minutes = String(now.getMinutes()).padStart(2, '0');
             const seconds = String(now.getSeconds()).padStart(2, '0');
+            const timeString = `${hours}:${minutes}:${seconds}`;
+            
+            // Tarih (Gün/Ay/Yıl)
             const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
             const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-            const timeString = `${hours}:${minutes}:${seconds}`;
-            const dateString = `${days[now.getDay()]}, ${months[now.getMonth()]} ${now.getDate()}, ${now.getFullYear()}`;
+            const day = days[now.getDay()];
+            const date = now.getDate();
+            const month = months[now.getMonth()];
+            const year = now.getFullYear();
+            const dateString = `${day}, ${month} ${date}, ${year}`;
+
+            // Saat ve Takvimi Sayfada Güncelle
             document.getElementById("clock").textContent = timeString;
             document.getElementById("calendar").textContent = dateString;
         }
+
+        // Saat ve Takvimi her saniye güncelle
         setInterval(updateClockAndCalendar, 1000);
+
+        // İlk güncelleme
         updateClockAndCalendar();
     </script>
 </body>
