@@ -55,20 +55,6 @@
             letter-spacing: 2px;
         }
 
-        /* Mouse üzerinde parlama efekti */
-        h1:hover {
-            animation: glow 1.5s ease-in-out infinite alternate;
-        }
-
-        @keyframes glow {
-            0% {
-                text-shadow: 0 0 5px #ffffff, 0 0 10px #ffffff, 0 0 20px #ffcc00, 0 0 30px #ffcc00, 0 0 40px #ffcc00, 0 0 50px #ffcc00, 0 0 75px #ffcc00;
-            }
-            100% {
-                text-shadow: 0 0 10px #ffffff, 0 0 20px #ffffff, 0 0 30px #ffcc00, 0 0 40px #ffcc00, 0 0 50px #ffcc00, 0 0 75px #ffcc00;
-            }
-        }
-
         .social-icons {
             display: flex;
             justify-content: space-between;
@@ -250,7 +236,7 @@
             const hours = String(now.getHours()).padStart(2, '0');
             const minutes = String(now.getMinutes()).padStart(2, '0');
             const seconds = String(now.getSeconds()).padStart(2, '0');
-            const timeString = `${hours}:${minutes}:${seconds}`;
+            const timeString = ${hours}:${minutes}:${seconds};
             
             // Tarih (Gün/Ay/Yıl)
             const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
@@ -259,7 +245,7 @@
             const date = now.getDate();
             const month = months[now.getMonth()];
             const year = now.getFullYear();
-            const dateString = `${day}, ${month} ${date}, ${year}`;
+            const dateString = ${day}, ${month} ${date}, ${year};
 
             // Saat ve Takvimi Sayfada Güncelle
             document.getElementById("clock").textContent = timeString;
