@@ -19,6 +19,7 @@
             align-items: center;
             height: 100vh;
             text-align: center;
+            position: relative;
         }
 
         .container {
@@ -78,52 +79,32 @@
             transition: all 0.3s ease;
         }
 
-        .feedback-form {
-            margin-top: 50px;
-            padding: 20px;
-            background-color: rgba(0, 0, 0, 0.5);
-            border-radius: 10px;
-            max-width: 500px;
-            margin-left: auto;
-            margin-right: auto;
-            color: #ffffff;
-        }
-
-        .feedback-form h2 {
-            font-size: 1.5rem;
-            margin-bottom: 20px;
-        }
-
-        .feedback-form label {
-            font-size: 1.1rem;
-            display: block;
-            margin-bottom: 10px;
-        }
-
-        .feedback-form button {
-            padding: 10px 20px;
-            background-color: #007fff;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 1rem;
-            margin-top: 20px;
-        }
-
-        .feedback-form button:hover {
-            background-color: #1e90ff;
-        }
-
-        #thank-you-message {
-            text-align: center;
+        /* Saat ve Takvim Stili */
+        .clock, .calendar {
+            position: absolute;
+            top: 20px;
+            right: 20px;
             font-size: 1.2rem;
-            margin-top: 20px;
-            color: #ffcc00;
+            color: white;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 10px;
+            border-radius: 10px;
+            text-align: center;
         }
+
+        .clock {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .calendar {
+            margin-top: 10px;
+            font-size: 1rem;
+        }
+
+        /* Diğer stil kodları buraya gelecek... */
     </style>
 </head>
-
 <body>
     <div class="container">
         <div class="background-layer"></div>
@@ -132,62 +113,42 @@
         <div class="social-icons animate__bounceIn">
             <!-- Sosyal medya ikonları buraya gelecek -->
         </div>
-
-        <!-- Geri Bildirim Anketi -->
-        <div class="feedback-form animate__fadeIn">
-            <h2>Which social media platform do you prefer?</h2>
-            <form id="surveyForm">
-                <label>
-                    <input type="radio" name="platform" value="Instagram"> Instagram
-                </label><br>
-                <label>
-                    <input type="radio" name="platform" value="TikTok"> TikTok
-                </label><br>
-                <label>
-                    <input type="radio" name="platform" value="Spotify"> Spotify
-                </label><br>
-                <label>
-                    <input type="radio" name="platform" value="YouTube"> YouTube
-                </label><br>
-                <label>
-                    <input type="radio" name="platform" value="Discord"> Discord
-                </label><br>
-                <label>
-                    <input type="radio" name="platform" value="Twitch"> Twitch
-                </label><br><br>
-                <button type="submit">Submit Feedback</button>
-            </form>
-            <div id="thank-you-message" style="display: none;">
-                <h3>Thank you for your feedback!</h3>
-            </div>
-        </div>
     </div>
 
+    <!-- Saat ve Takvim Alanı -->
+    <div id="clock" class="clock"></div>
+    <div id="calendar" class="calendar"></div>
+
     <script>
-        document.getElementById("surveyForm").addEventListener("submit", function(event) {
-            event.preventDefault();
+        // Saat ve Takvim Güncelleme Fonksiyonu
+        function updateClockAndCalendar() {
+            const now = new Date();
+            
+            // Saat
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const seconds = String(now.getSeconds()).padStart(2, '0');
+            const timeString = `${hours}:${minutes}:${seconds}`;
+            
+            // Tarih (Gün/Ay/Yıl)
+            const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+            const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+            const day = days[now.getDay()];
+            const date = now.getDate();
+            const month = months[now.getMonth()];
+            const year = now.getFullYear();
+            const dateString = `${day}, ${month} ${date}, ${year}`;
 
-            // Kullanıcının seçtiği platformu alıyoruz
-            const formData = new FormData(event.target);
-            const selectedPlatform = formData.get("platform");
+            // Saat ve Takvimi Sayfada Güncelle
+            document.getElementById("clock").textContent = timeString;
+            document.getElementById("calendar").textContent = dateString;
+        }
 
-            if (selectedPlatform) {
-                alert("You prefer: " + selectedPlatform);
+        // Saat ve Takvimi her saniye güncelle
+        setInterval(updateClockAndCalendar, 1000);
 
-                // Teşekkür mesajını göster
-                document.getElementById("thank-you-message").style.display = "block";
-                
-                // Formu sıfırlıyoruz
-                event.target.reset();
-
-                // Geri bildirim gönderildiğinde formu gizliyoruz
-                setTimeout(function() {
-                    document.getElementById("thank-you-message").style.display = "none";
-                }, 3000);
-            } else {
-                alert("Please select a platform before submitting.");
-            }
-        });
+        // İlk güncelleme
+        updateClockAndCalendar();
     </script>
 </body>
 </html>
