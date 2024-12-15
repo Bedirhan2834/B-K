@@ -19,6 +19,7 @@
             align-items: center;
             height: 100vh;
             text-align: center;
+            flex-direction: column;
         }
 
         .container {
@@ -39,13 +40,6 @@
             z-index: -1;
             border-radius: 20px;
             padding-bottom: 400px;
-        }
-
-        /* PC için padding-bottom değerini arttırma */
-        @media (min-width: 769px) {
-            .background-layer {
-                padding-bottom: 500px;
-            }
         }
 
         h1 {
@@ -93,7 +87,6 @@
             transition: all 0.3s ease;
         }
 
-        /* Hover efekti ve renk değişimi */
         .social-icons a:hover img {
             transform: scale(1.2);
             filter: brightness(1.5) drop-shadow(0 0 10px #ffffff);
@@ -104,8 +97,27 @@
             color: #ffcc00;
         }
 
-        /* Mobil uyumlu düzenlemeler */
-        @media (max-width: 768px) {
+        /* Footer - Yalnızca PC için görünür */
+        .footer {
+            display: none; /* Başlangıçta gizle */
+            background-color: rgba(0, 0, 0, 0.7);
+            color: #ffffff;
+            width: 100%;
+            padding: 10px 0;
+            position: absolute;
+            bottom: 0;
+            text-align: center;
+            font-size: 1.2rem;
+            letter-spacing: 1px;
+        }
+
+        @media (min-width: 769px) { /* PC için */
+            .footer {
+                display: block; /* PC ekranında görünür */
+            }
+        }
+
+        @media (max-width: 768px) { /* Mobil için */
             .container {
                 max-width: 90%;
                 margin-top: 0;
@@ -164,7 +176,6 @@
         <h1 class="animate__animated animate__flip">Social Hub</h1>
 
         <div class="social-icons animate__bounceIn">
-            <!-- İlk grup: Instagram, TikTok, Spotify -->
             <div class="column">
                 <a href="https://www.instagram.com/bedirhan_kymk_/" target="_blank">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Instagram_logo_2022.svg/600px-Instagram_logo_2022.svg.png" alt="Instagram">
@@ -179,8 +190,6 @@
                     <p>Spotify</p>
                 </a>
             </div>
-
-            <!-- İkinci grup: YouTube, Discord, Twitch -->
             <div class="column">
                 <a href="https://www.youtube.com/@Bedirhan_kymk_" target="_blank">
                     <img src="https://www.svgrepo.com/show/343537/youtube-player-multimedia-video-communication-interaction.svg" alt="YouTube">
@@ -196,6 +205,11 @@
                 </a>
             </div>
         </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        © 2024 Bedirhan Kymk | Tüm Hakları Saklıdır
     </div>
 </body>
 </html>
