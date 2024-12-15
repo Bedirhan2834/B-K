@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -40,12 +39,9 @@
             z-index: -1;
             border-radius: 20px;
             padding-bottom: 400px;
-
-            /* Blur Efekti */
-            backdrop-filter: blur(10px);
         }
 
-        /* PC için padding-bottom değeri */
+        /* PC için padding-bottom değerini arttırma */
         @media (min-width: 769px) {
             .background-layer {
                 padding-bottom: 500px;
@@ -97,7 +93,7 @@
             transition: all 0.3s ease;
         }
 
-        /* Hover efekti */
+        /* Hover efekti ve renk değişimi */
         .social-icons a:hover img {
             transform: scale(1.2);
             filter: brightness(1.5) drop-shadow(0 0 10px #ffffff);
@@ -108,59 +104,47 @@
             color: #ffcc00;
         }
 
-        /* Mobil düzenleme */
+        /* Profil Kartı */
+        .profile-card {
+            position: absolute;
+            bottom: 50px;
+            left: 50px;
+            background: rgba(0, 0, 0, 0.6);
+            border-radius: 15px;
+            text-align: center;
+            padding: 20px;
+            color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            font-family: 'Ubuntu', sans-serif;
+            max-width: 250px;
+        }
+
+        /* Profil Kartını Mobil Cihazlarda Gizle */
         @media (max-width: 768px) {
-            .container {
-                max-width: 90%;
-                margin-top: 0;
-            }
-
-            h1 {
-                font-size: 2.5rem;
-            }
-
-            .social-icons {
-                gap: 15px;
-                justify-content: center;
-            }
-
-            .social-icons .column {
-                width: 45%;
-                margin-bottom: 15px;
-            }
-
-            .social-icons img {
-                width: 45px;
-                height: 45px;
-            }
-
-            .social-icons p {
-                font-size: 1rem;
-            }
-
-            body {
-                background-image: url(https://i.pinimg.com/originals/6f/bc/f9/6fbcf93549ebfb8660953e347e3691f4.gif);
-                background-size: cover;
-                background-position: center;
+            .profile-card {
+                display: none;
             }
         }
 
-        @media (max-width: 480px) {
-            h1 {
-                font-size: 2rem;
-            }
-
-            .social-icons img {
-                width: 40px;
-                height: 40px;
-            }
-
-            .social-icons p {
-                font-size: 0.9rem;
-            }
+        .profile-card img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+            border: 3px solid #007fff;
         }
 
-        /* Saat ve Takvim için kutu */
+        .profile-card h2 {
+            margin: 10px 0 5px;
+            font-size: 1.5rem;
+        }
+
+        .profile-card p {
+            font-size: 1rem;
+            opacity: 0.8;
+        }
+
+        /* Saat ve Takvim */
         .clock-calendar {
             position: absolute;
             top: 20px;
@@ -186,11 +170,14 @@
 </head>
 
 <body>
+    <!-- Ana Container -->
     <div class="container">
         <div class="background-layer"></div>
         <h1 class="animate__animated animate__flip">Social Hub</h1>
 
+        <!-- Sosyal Medya İkonları -->
         <div class="social-icons animate__bounceIn">
+            <!-- İlk Grup -->
             <div class="column">
                 <a href="https://www.instagram.com/bedirhan_kymk_/" target="_blank">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Instagram_logo_2022.svg/600px-Instagram_logo_2022.svg.png" alt="Instagram">
@@ -206,6 +193,7 @@
                 </a>
             </div>
 
+            <!-- İkinci Grup -->
             <div class="column">
                 <a href="https://www.youtube.com/@Bedirhan_kymk_" target="_blank">
                     <img src="https://www.svgrepo.com/show/343537/youtube-player-multimedia-video-communication-interaction.svg" alt="YouTube">
@@ -223,6 +211,14 @@
         </div>
     </div>
 
+    <!-- Profil Kartı -->
+    <div class="profile-card">
+        <img src="https://i.imgur.com/yourImageLink.png" alt="Profil Resmi">
+        <h2>Bedirhan Kaymak</h2>
+        <p>Web Developer | Tech Enthusiast</p>
+    </div>
+
+    <!-- Saat ve Takvim -->
     <div id="clock-calendar" class="clock-calendar">
         <div id="clock" class="clock"></div>
         <div id="calendar" class="calendar"></div>
@@ -234,20 +230,13 @@
             const hours = String(now.getHours()).padStart(2, '0');
             const minutes = String(now.getMinutes()).padStart(2, '0');
             const seconds = String(now.getSeconds()).padStart(2, '0');
-            const timeString = `${hours}:${minutes}:${seconds}`;
-
             const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
             const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-            const day = days[now.getDay()];
-            const date = now.getDate();
-            const month = months[now.getMonth()];
-            const year = now.getFullYear();
-            const dateString = `${day}, ${month} ${date}, ${year}`;
-
+            const timeString = `${hours}:${minutes}:${seconds}`;
+            const dateString = `${days[now.getDay()]}, ${months[now.getMonth()]} ${now.getDate()}, ${now.getFullYear()}`;
             document.getElementById("clock").textContent = timeString;
             document.getElementById("calendar").textContent = dateString;
         }
-
         setInterval(updateClockAndCalendar, 1000);
         updateClockAndCalendar();
     </script>
