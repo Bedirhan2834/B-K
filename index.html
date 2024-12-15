@@ -41,13 +41,6 @@
             padding-bottom: 400px;
         }
 
-        /* PC için padding-bottom değerini arttırma */
-        @media (min-width: 769px) {
-            .background-layer {
-                padding-bottom: 500px;
-            }
-        }
-
         h1 {
             margin-bottom: 50px;
             color: #ffffff;
@@ -85,75 +78,48 @@
             transition: all 0.3s ease;
         }
 
-        .social-icons p {
-            margin-top: 10px;
-            font-size: 1.2rem;
+        .feedback-form {
+            margin-top: 50px;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
             color: #ffffff;
-            margin-bottom: 0;
-            transition: all 0.3s ease;
         }
 
-        /* Hover efekti ve renk değişimi */
-        .social-icons a:hover img {
-            transform: scale(1.2);
-            filter: brightness(1.5) drop-shadow(0 0 10px #ffffff);
+        .feedback-form h2 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
         }
 
-        .social-icons a:hover p {
-            transform: scale(1.2);
+        .feedback-form label {
+            font-size: 1.1rem;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .feedback-form button {
+            padding: 10px 20px;
+            background-color: #007fff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            margin-top: 20px;
+        }
+
+        .feedback-form button:hover {
+            background-color: #1e90ff;
+        }
+
+        #thank-you-message {
+            text-align: center;
+            font-size: 1.2rem;
+            margin-top: 20px;
             color: #ffcc00;
-        }
-
-        /* Mobil uyumlu düzenlemeler */
-        @media (max-width: 768px) {
-            .container {
-                max-width: 90%;
-                margin-top: 0;
-            }
-
-            h1 {
-                font-size: 2.5rem;
-            }
-
-            .social-icons {
-                gap: 15px;
-                justify-content: center;
-            }
-
-            .social-icons .column {
-                width: 45%;
-                margin-bottom: 15px;
-            }
-
-            .social-icons img {
-                width: 45px;
-                height: 45px;
-            }
-
-            .social-icons p {
-                font-size: 1rem;
-            }
-
-            body {
-                background-image: url(https://i.pinimg.com/originals/6f/bc/f9/6fbcf93549ebfb8660953e347e3691f4.gif);
-                background-size: cover;
-                background-position: center;
-            }
-        }
-
-        @media (max-width: 480px) {
-            h1 {
-                font-size: 2rem;
-            }
-
-            .social-icons img {
-                width: 40px;
-                height: 40px;
-            }
-
-            .social-icons p {
-                font-size: 0.9rem;
-            }
         }
     </style>
 </head>
@@ -164,38 +130,64 @@
         <h1 class="animate__animated animate__flip">Social Hub</h1>
 
         <div class="social-icons animate__bounceIn">
-            <!-- İlk grup: Instagram, TikTok, Spotify -->
-            <div class="column">
-                <a href="https://www.instagram.com/bedirhan_kymk_/" target="_blank">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Instagram_logo_2022.svg/600px-Instagram_logo_2022.svg.png" alt="Instagram">
-                    <p>Instagram</p>
-                </a>
-                <a href="https://www.tiktok.com/@bedirhan_kymk_" target="_blank">
-                    <img src="https://www.svgrepo.com/show/303260/tiktok-logo-logo.svg" alt="TikTok">
-                    <p>TikTok</p>
-                </a>
-                <a href="https://open.spotify.com/user/e02o4n09r85plso05jndp7d24" target="_blank">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/1/19/Spotify_logo_without_text.svg" alt="Spotify">
-                    <p>Spotify</p>
-                </a>
-            </div>
+            <!-- Sosyal medya ikonları buraya gelecek -->
+        </div>
 
-            <!-- İkinci grup: YouTube, Discord, Twitch -->
-            <div class="column">
-                <a href="https://www.youtube.com/@Bedirhan_kymk_" target="_blank">
-                    <img src="https://www.svgrepo.com/show/343537/youtube-player-multimedia-video-communication-interaction.svg" alt="YouTube">
-                    <p>YouTube</p>
-                </a>
-                <a href="https://discord.com/invite/ncmNMbNtdX" target="_blank">
-                    <img src="https://www.svgrepo.com/show/353655/discord-icon.svg" alt="Discord">
-                    <p>Discord</p>
-                </a>
-                <a href="https://www.twitch.tv/bedirhan_kymk_" target="_blank">
-                    <img src="https://www.svgrepo.com/show/448251/twitch.svg" alt="Twitch">
-                    <p>Twitch</p>
-                </a>
+        <!-- Geri Bildirim Anketi -->
+        <div class="feedback-form animate__fadeIn">
+            <h2>Which social media platform do you prefer?</h2>
+            <form id="surveyForm">
+                <label>
+                    <input type="radio" name="platform" value="Instagram"> Instagram
+                </label><br>
+                <label>
+                    <input type="radio" name="platform" value="TikTok"> TikTok
+                </label><br>
+                <label>
+                    <input type="radio" name="platform" value="Spotify"> Spotify
+                </label><br>
+                <label>
+                    <input type="radio" name="platform" value="YouTube"> YouTube
+                </label><br>
+                <label>
+                    <input type="radio" name="platform" value="Discord"> Discord
+                </label><br>
+                <label>
+                    <input type="radio" name="platform" value="Twitch"> Twitch
+                </label><br><br>
+                <button type="submit">Submit Feedback</button>
+            </form>
+            <div id="thank-you-message" style="display: none;">
+                <h3>Thank you for your feedback!</h3>
             </div>
         </div>
     </div>
+
+    <script>
+        document.getElementById("surveyForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            // Kullanıcının seçtiği platformu alıyoruz
+            const formData = new FormData(event.target);
+            const selectedPlatform = formData.get("platform");
+
+            if (selectedPlatform) {
+                alert("You prefer: " + selectedPlatform);
+
+                // Teşekkür mesajını göster
+                document.getElementById("thank-you-message").style.display = "block";
+                
+                // Formu sıfırlıyoruz
+                event.target.reset();
+
+                // Geri bildirim gönderildiğinde formu gizliyoruz
+                setTimeout(function() {
+                    document.getElementById("thank-you-message").style.display = "none";
+                }, 3000);
+            } else {
+                alert("Please select a platform before submitting.");
+            }
+        });
+    </script>
 </body>
 </html>
