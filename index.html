@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -57,7 +58,6 @@
             border-radius: 20px;
             padding-bottom: 500px;
             padding-left: 200px;
-
         }
 
         .user-info img {
@@ -78,10 +78,22 @@
             color: #fff;
         }
 
-        /* Sağdaki Sosyal İkonlar */
-        .social-icons {
+        .social-icons-background {
             width: 50%;
-            margin-left: 150px;
+            margin-right: 100px;
+            padding-bottom: 30px;
+            padding-top: 60px;
+            margin-bottom: 140px;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            background: rgba(0, 0, 0, 0.7);
+            opacity: 90%;
+            border-radius: 20px;
+        }
+
+        /* Sosyal İkonlar */
+        .social-icons {
             display: flex;
             justify-content: space-between;
             flex-wrap: wrap;
@@ -89,7 +101,6 @@
         }
 
         .column {
-            
             display: flex;
             flex-direction: column;
             gap: 30px;
@@ -119,7 +130,6 @@
             transition: all 0.3s ease;
         }
 
-        /* Hover efekti ve renk değişimi */
         .social-icons a:hover img {
             transform: scale(1.2);
             filter: brightness(1.5) drop-shadow(0 0 10px #ffffff);
@@ -130,63 +140,7 @@
             color: #ffcc00;
         }
 
-        /* Mobil uyumlu düzenlemeler */
-        @media (max-width: 768px) {
-            .container {
-                flex-direction: column;
-                align-items: center;
-                max-width: 90%;
-                margin-top: 0;
-            }
-
-            .user-info {
-                width: 1%;
-                margin-bottom: 20px;
-            }
-
-            .social-icons {
-                width: 80%;
-                gap: 15px;
-                justify-content: center;
-            }
-
-            .social-icons .column {
-                width: 45%;
-                margin-bottom: 15px;
-            }
-
-            .social-icons img {
-                width: 45px;
-                height: 45px;
-            }
-
-            .social-icons p {
-                font-size: 1rem;
-            }
-
-            body {
-                background-image: url(https://i.pinimg.com/originals/6f/bc/f9/6fbcf93549ebfb8660953e347e3691f4.gif);
-                background-size: cover;
-                background-position: center;
-            }
-        }
-
-        @media (max-width: 480px) {
-            h1 {
-                font-size: 2rem;
-            }
-
-            .social-icons img {
-                width: 40px;
-                height: 40px;
-            }
-
-            .social-icons p {
-                font-size: 0.9rem;
-            }
-        }
-
-        /* Saat ve Takvim için tek bir kutu */
+        /* Saat ve Takvim */
         .clock-calendar {
             position: absolute;
             top: 20px;
@@ -199,7 +153,6 @@
             font-size: 1rem;
             font-weight: bold;
             font-family: 'Ubuntu', sans-serif;
-            /* Ubuntu fontu eklendi */
         }
 
         .clock {
@@ -209,19 +162,6 @@
         .calendar {
             margin-top: 5px;
         }
-        .social-icons-background{
-            width: 50%;
-            margin-right: 100px;
-            padding-bottom: 30px;
-            padding-top: 60px;
-            margin-bottom: 140px;
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            background: rgba(0, 0, 0, 0.7);
-            opacity: 90%;
-            border-radius: 20px;
-        }
     </style>
 </head>
 
@@ -229,16 +169,16 @@
     <div class="container">
         <div class="background-layer"></div>
 
-        <!-- Kullanıcı Bilgileri Alanı -->
+        <!-- Kullanıcı Bilgileri -->
         <div class="user-info">
             <img src="https://via.placeholder.com/100" alt="Profile Picture">
             <h2>Bedirhan K.</h2>
             <p>Social Media Enthusiast & Content Creator</p>
         </div>
+
+        <!-- Sosyal İkonlar -->
         <div class="social-icons-background">
-            <!-- Sağdaki Sosyal İkonlar -->
             <div class="social-icons animate__bounceIn">
-                <!-- İlk grup: Instagram, TikTok, Spotify -->
                 <div class="column">
                     <a href="https://www.instagram.com/bedirhan_kymk_/" target="_blank">
                         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Instagram_logo_2022.svg/600px-Instagram_logo_2022.svg.png"
@@ -255,8 +195,6 @@
                         <p>Spotify</p>
                     </a>
                 </div>
-
-                <!-- İkinci grup: YouTube, Discord, Twitch -->
                 <div class="column">
                     <a href="https://www.youtube.com/@Bedirhan_kymk_" target="_blank">
                         <img src="https://www.svgrepo.com/show/343537/youtube-player-multimedia-video-communication-interaction.svg"
@@ -276,41 +214,34 @@
         </div>
     </div>
 
-    <!-- Saat ve Takvim için birleşik kutu -->
+    <!-- Saat ve Takvim -->
     <div id="clock-calendar" class="clock-calendar">
         <div id="clock" class="clock"></div>
         <div id="calendar" class="calendar"></div>
     </div>
 
     <script>
-        // Saat ve Takvim Güncelleme Fonksiyonu
         function updateClockAndCalendar() {
             const now = new Date();
 
-            // Saat
             const hours = String(now.getHours()).padStart(2, '0');
             const minutes = String(now.getMinutes()).padStart(2, '0');
             const seconds = String(now.getSeconds()).padStart(2, '0');
-            const timeString = ${ hours }: ${ minutes }: ${ seconds };
+            const timeString = `${hours}:${minutes}:${seconds}`;
 
-            // Tarih (Gün/Ay/Yıl)
             const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
             const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
             const day = days[now.getDay()];
             const date = now.getDate();
             const month = months[now.getMonth()];
             const year = now.getFullYear();
-            const dateString = ${ day }, ${ month } ${ date }, ${ year };
+            const dateString = `${day}, ${month} ${date}, ${year}`;
 
-            // Saat ve Takvimi Sayfada Güncelle
             document.getElementById("clock").textContent = timeString;
             document.getElementById("calendar").textContent = dateString;
         }
 
-        // Saat ve Takvimi her saniye güncelle
         setInterval(updateClockAndCalendar, 1000);
-
-        // İlk güncelleme
         updateClockAndCalendar();
     </script>
 </body>
