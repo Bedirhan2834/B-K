@@ -44,7 +44,7 @@
         /* PC için padding-bottom değerini arttırma */
         @media (min-width: 769px) {
             .background-layer {
-                padding-bottom: 500px; /* PC için padding-bottom değerini 100px artırdık */
+                padding-bottom: 500px;
             }
         }
 
@@ -93,13 +93,15 @@
             transition: all 0.3s ease;
         }
 
-        /* Hover efekti */
+        /* Hover efekti ve renk değişimi */
         .social-icons a:hover img {
             transform: scale(1.2);
+            filter: brightness(1.5) drop-shadow(0 0 10px #ffffff);
         }
 
         .social-icons a:hover p {
             transform: scale(1.2);
+            color: #ffcc00;
         }
 
         /* Mobil uyumlu düzenlemeler */
@@ -118,10 +120,9 @@
                 justify-content: center;
             }
 
-            /* 2'li ikonlar için düzenleme - Mobilde */
             .social-icons .column {
-                width: 45%; /* Mobilde her ikon için 2'li sıralama */
-                margin-bottom: 15px; /* İkonlar arasına boşluk ekle */
+                width: 45%;
+                margin-bottom: 15px;
             }
 
             .social-icons img {
@@ -133,7 +134,6 @@
                 font-size: 1rem;
             }
 
-            /* Mobilde farklı bir GIF kullanıyoruz */
             body {
                 background-image: url(https://i.pinimg.com/originals/6f/bc/f9/6fbcf93549ebfb8660953e347e3691f4.gif);
                 background-size: cover;
@@ -154,20 +154,13 @@
             .social-icons p {
                 font-size: 0.9rem;
             }
-
-            body {
-                background-image: url(https://i.pinimg.com/originals/6f/bc/f9/6fbcf93549ebfb8660953e347e3691f4.gif);
-                background-size: cover;
-                background-position: center;
-            }
         }
     </style>
 </head>
 
-<body cz-shortcut-listen="true">
+<body>
     <div class="container">
         <div class="background-layer"></div>
-        <!-- Social Hub başlığına animate__flip animasyonu eklendi -->
         <h1 class="animate__animated animate__flip">Social Hub</h1>
 
         <div class="social-icons animate__bounceIn">
