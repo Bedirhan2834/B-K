@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -6,313 +7,123 @@
     <title>Social Hub</title>
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&amp;family=Ubuntu:wght@400;500&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <style>
         body {
-            font-family: 'Dancing Script', cursive;
-            background-image: url(https://i.pinimg.com/originals/12/b2/3a/12b23a7752e8a7a4464c1ff5e596237f.gif);
-            background-repeat: no-repeat;
-            background-size: cover;
-            color: #ffffff;
             margin: 0;
             padding: 0;
+            font-family: 'Dancing Script', cursive;
+            background: url('https://i.pinimg.com/originals/12/b2/3a/12b23a7752e8a7a4464c1ff5e596237f.gif') no-repeat center center fixed;
+            background-size: cover;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            text-align: center;
         }
 
-        .container {
-            width: 100%;
-            max-width: 1200px;
-            margin-top: -60px;
-            padding-left: 100px;
-            padding-top: 100px;
+        .main-container {
             position: relative;
+            width: 90%;
+            height: 90%;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 20px;
+            backdrop-filter: blur(10px); /* Blur efekti */
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
         }
 
-        /* Kullanıcı Bilgileri Alanı */
         .user-info {
-            width: 30%;
-            background: rgba(0, 0, 0, 0.7);
-            padding: 20px;
-            height: 60%;
+            position: absolute;
+            left: 20%;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 300px; /* Kırmızı çizgi alanı tamamlandı */
+            height: 300px;
+            background: rgba(0, 0, 0, 0.8);
+            color: #fff;
             border-radius: 10px;
             text-align: center;
-            margin-top: 90px;
-        }
-
-        .background-layer {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(45deg, #007fff, #1e90ff);
-            opacity: 50%;
-            z-index: -1;
-            border-radius: 20px;
-            padding-bottom: 500px;
-            padding-left: 200px;
-
+            padding: 20px;
         }
 
         .user-info img {
             width: 100px;
             height: 100px;
             border-radius: 50%;
-            object-fit: cover;
-            margin-bottom: 20px;
+            margin-bottom: 10px;
         }
 
-        .user-info h2 {
-            margin: 10px 0;
-            font-size: 1.5rem;
-        }
-
-        .user-info p {
-            font-size: 1.1rem;
-            color: #fff;
-        }
-
-        /* Sağdaki Sosyal İkonlar */
-        .social-icons {
-            width: 50%;
-            margin-left: 150px;
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
-
-        .column {
-            
+        .social-icons-container {
+            position: absolute;
+            right: 20%;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 300px; /* Mavi çizgi alanı kısaltıldı */
+            background: rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            border-radius: 10px;
             display: flex;
             flex-direction: column;
-            gap: 30px;
-            width: 45%;
             align-items: center;
+            text-align: center;
+        }
+
+        .social-icons-container h2 {
+            color: #fff;
+            font-size: 2rem;
+            margin-bottom: 15px;
         }
 
         .social-icons a {
+            display: block;
+            margin: 10px 0;
+            color: #fff;
             text-decoration: none;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            transition: all 0.3s ease;
-        }
-
-        .social-icons img {
-            width: 55px;
-            height: 55px;
-            transition: all 0.3s ease;
-        }
-
-        .social-icons p {
-            margin-top: 10px;
             font-size: 1.2rem;
-            color: #ffffff;
-            margin-bottom: 0;
             transition: all 0.3s ease;
         }
 
-        /* Hover efekti ve renk değişimi */
-        .social-icons a:hover img {
-            transform: scale(1.2);
-            filter: brightness(1.5) drop-shadow(0 0 10px #ffffff);
-        }
-
-        .social-icons a:hover p {
-            transform: scale(1.2);
+        .social-icons a:hover {
             color: #ffcc00;
         }
 
-        /* Mobil uyumlu düzenlemeler */
-        @media (max-width: 768px) {
-            .container {
-                flex-direction: column;
-                align-items: center;
-                max-width: 90%;
-                margin-top: 0;
-            }
-
-            .user-info {
-                width: 1%;
-                margin-bottom: 20px;
-            }
-
-            .social-icons {
-                width: 80%;
-                gap: 15px;
-                justify-content: center;
-            }
-
-            .social-icons .column {
-                width: 45%;
-                margin-bottom: 15px;
-            }
-
-            .social-icons img {
-                width: 45px;
-                height: 45px;
-            }
-
-            .social-icons p {
-                font-size: 1rem;
-            }
-
-            body {
-                background-image: url(https://i.pinimg.com/originals/6f/bc/f9/6fbcf93549ebfb8660953e347e3691f4.gif);
-                background-size: cover;
-                background-position: center;
-            }
+        .social-icons img {
+            width: 40px;
+            height: 40px;
+            margin-right: 10px;
         }
 
-        @media (max-width: 480px) {
-            h1 {
-                font-size: 2rem;
-            }
-
-            .social-icons img {
-                width: 40px;
-                height: 40px;
-            }
-
-            .social-icons p {
-                font-size: 0.9rem;
-            }
-        }
-
-        /* Saat ve Takvim için tek bir kutu */
-        .clock-calendar {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background-color: rgba(0, 0, 0, 0.5);
-            padding: 15px;
-            border-radius: 10px;
-            color: white;
-            text-align: center;
-            font-size: 1rem;
-            font-weight: bold;
-            font-family: 'Ubuntu', sans-serif;
-            /* Ubuntu fontu eklendi */
-        }
-
-        .clock {
-            font-size: 1.5rem;
-        }
-
-        .calendar {
-            margin-top: 5px;
-        }
-        .social-icons-background{
-            width: 50%;
-            margin-right: 100px;
-            padding-bottom: 30px;
-            padding-top: 60px;
-            margin-bottom: 140px;
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            background: rgba(0, 0, 0, 0.7);
-            opacity: 90%;
-            border-radius: 20px;
-        }
     </style>
 </head>
 
 <body>
-    <div class="container">
-        <div class="background-layer"></div>
+    <!-- Ana Konteyner -->
+    <div class="main-container">
 
-        <!-- Kullanıcı Bilgileri Alanı -->
+        <!-- Kullanıcı Bilgileri -->
         <div class="user-info">
             <img src="https://via.placeholder.com/100" alt="Profile Picture">
             <h2>Bedirhan K.</h2>
             <p>Social Media Enthusiast & Content Creator</p>
         </div>
-        <div class="social-icons-background">
-            <!-- Sağdaki Sosyal İkonlar -->
-            <div class="social-icons animate__bounceIn">
-                <!-- İlk grup: Instagram, TikTok, Spotify -->
-                <div class="column">
-                    <a href="https://www.instagram.com/bedirhan_kymk_/" target="_blank">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Instagram_logo_2022.svg/600px-Instagram_logo_2022.svg.png"
-                            alt="Instagram">
-                        <p>Instagram</p>
-                    </a>
-                    <a href="https://www.tiktok.com/@bedirhan_kymk_" target="_blank">
-                        <img src="https://www.svgrepo.com/show/303260/tiktok-logo-logo.svg" alt="TikTok">
-                        <p>TikTok</p>
-                    </a>
-                    <a href="https://open.spotify.com/user/e02o4n09r85plso05jndp7d24" target="_blank">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/1/19/Spotify_logo_without_text.svg"
-                            alt="Spotify">
-                        <p>Spotify</p>
-                    </a>
-                </div>
 
-                <!-- İkinci grup: YouTube, Discord, Twitch -->
-                <div class="column">
-                    <a href="https://www.youtube.com/@Bedirhan_kymk_" target="_blank">
-                        <img src="https://www.svgrepo.com/show/343537/youtube-player-multimedia-video-communication-interaction.svg"
-                            alt="YouTube">
-                        <p>YouTube</p>
-                    </a>
-                    <a href="https://discord.com/invite/ncmNMbNtdX" target="_blank">
-                        <img src="https://www.svgrepo.com/show/353655/discord-icon.svg" alt="Discord">
-                        <p>Discord</p>
-                    </a>
-                    <a href="https://www.twitch.tv/bedirhan_kymk_" target="_blank">
-                        <img src="https://www.svgrepo.com/show/448251/twitch.svg" alt="Twitch">
-                        <p>Twitch</p>
-                    </a>
-                </div>
+        <!-- Sosyal Medya İkonları -->
+        <div class="social-icons-container">
+            <h2>Social Hub</h2>
+            <div class="social-icons">
+                <a href="#">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Instagram_logo_2022.svg/600px-Instagram_logo_2022.svg.png" alt="Instagram"> Instagram
+                </a>
+                <a href="#">
+                    <img src="https://www.svgrepo.com/show/303260/tiktok-logo-logo.svg" alt="TikTok"> TikTok
+                </a>
+                <a href="#">
+                    <img src="https://www.svgrepo.com/show/343537/youtube-player-multimedia-video-communication-interaction.svg" alt="YouTube"> YouTube
+                </a>
             </div>
         </div>
     </div>
-
-    <!-- Saat ve Takvim için birleşik kutu -->
-    <div id="clock-calendar" class="clock-calendar">
-        <div id="clock" class="clock"></div>
-        <div id="calendar" class="calendar"></div>
-    </div>
-
-    <script>
-        // Saat ve Takvim Güncelleme Fonksiyonu
-        function updateClockAndCalendar() {
-            const now = new Date();
-
-            // Saat
-            const hours = String(now.getHours()).padStart(2, '0');
-            const minutes = String(now.getMinutes()).padStart(2, '0');
-            const seconds = String(now.getSeconds()).padStart(2, '0');
-            const timeString = ${ hours }: ${ minutes }: ${ seconds };
-
-            // Tarih (Gün/Ay/Yıl)
-            const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-            const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-            const day = days[now.getDay()];
-            const date = now.getDate();
-            const month = months[now.getMonth()];
-            const year = now.getFullYear();
-            const dateString = ${ day }, ${ month } ${ date }, ${ year };
-
-            // Saat ve Takvimi Sayfada Güncelle
-            document.getElementById("clock").textContent = timeString;
-            document.getElementById("calendar").textContent = dateString;
-        }
-
-        // Saat ve Takvimi her saniye güncelle
-        setInterval(updateClockAndCalendar, 1000);
-
-        // İlk güncelleme
-        updateClockAndCalendar();
-    </script>
 </body>
 
 </html>
