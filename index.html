@@ -3,7 +3,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Social Hub</title>
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&amp;family=Ubuntu:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&amp;display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <style>
         body {
@@ -23,43 +23,39 @@
 
         .container {
             width: 100%;
-            max-width: 1000px;
+            max-width: 600px;
             margin-top: -60px;
             position: relative;
-            display: flex;
-            justify-content: space-between;
         }
 
-        /* Kullanıcı Bilgileri Alanı */
-        .user-info {
-            width: 30%;
-            background: rgba(0, 0, 0, 0.7);
-            padding: 20px;
-            border-radius: 10px;
-            text-align: center;
+        .background-layer {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, #007fff, #1e90ff);
+            opacity: 50%;
+            z-index: -1;
+            border-radius: 20px;
+            padding-bottom: 400px;
         }
 
-        .user-info img {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin-bottom: 20px;
+        /* PC için padding-bottom değerini arttırma */
+        @media (min-width: 769px) {
+            .background-layer {
+                padding-bottom: 500px;
+            }
         }
 
-        .user-info h2 {
-            margin: 10px 0;
-            font-size: 1.5rem;
+        h1 {
+            margin-bottom: 50px;
+            color: #ffffff;
+            font-size: 4rem;
+            letter-spacing: 2px;
         }
 
-        .user-info p {
-            font-size: 1.1rem;
-            color: #fff;
-        }
-
-        /* Sağdaki Sosyal İkonlar */
         .social-icons {
-            width: 65%;
             display: flex;
             justify-content: space-between;
             flex-wrap: wrap;
@@ -111,19 +107,15 @@
         /* Mobil uyumlu düzenlemeler */
         @media (max-width: 768px) {
             .container {
-                flex-direction: column;
-                align-items: center;
                 max-width: 90%;
                 margin-top: 0;
             }
 
-            .user-info {
-                width: 80%;
-                margin-bottom: 20px;
+            h1 {
+                font-size: 2.5rem;
             }
 
             .social-icons {
-                width: 80%;
                 gap: 15px;
                 justify-content: center;
             }
@@ -163,42 +155,14 @@
                 font-size: 0.9rem;
             }
         }
-
-        /* Saat ve Takvim için tek bir kutu */
-        .clock-calendar {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background-color: rgba(0, 0, 0, 0.5);
-            padding: 15px;
-            border-radius: 10px;
-            color: white;
-            text-align: center;
-            font-size: 1rem;
-            font-weight: bold;
-            font-family: 'Ubuntu', sans-serif; /* Ubuntu fontu eklendi */
-        }
-
-        .clock {
-            font-size: 1.5rem;
-        }
-
-        .calendar {
-            margin-top: 5px;
-        }
     </style>
 </head>
 
 <body>
     <div class="container">
-        <!-- Kullanıcı Bilgileri Alanı -->
-        <div class="user-info">
-            <img src="https://via.placeholder.com/100" alt="Profile Picture">
-            <h2>Bedirhan K.</h2>
-            <p>Social Media Enthusiast & Content Creator</p>
-        </div>
+        <div class="background-layer"></div>
+        <h1 class="animate__animated animate__flip">Social Hub</h1>
 
-        <!-- Sağdaki Sosyal İkonlar -->
         <div class="social-icons animate__bounceIn">
             <!-- İlk grup: Instagram, TikTok, Spotify -->
             <div class="column">
@@ -233,43 +197,5 @@
             </div>
         </div>
     </div>
-
-    <!-- Saat ve Takvim için birleşik kutu -->
-    <div id="clock-calendar" class="clock-calendar">
-        <div id="clock" class="clock"></div>
-        <div id="calendar" class="calendar"></div>
-    </div>
-
-    <script>
-        // Saat ve Takvim Güncelleme Fonksiyonu
-        function updateClockAndCalendar() {
-            const now = new Date();
-            
-            // Saat
-            const hours = String(now.getHours()).padStart(2, '0');
-            const minutes = String(now.getMinutes()).padStart(2, '0');
-            const seconds = String(now.getSeconds()).padStart(2, '0');
-            const timeString = ${hours}:${minutes}:${seconds};
-            
-            // Tarih (Gün/Ay/Yıl)
-            const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-            const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-            const day = days[now.getDay()];
-            const date = now.getDate();
-            const month = months[now.getMonth()];
-            const year = now.getFullYear();
-            const dateString = ${day}, ${month} ${date}, ${year};
-
-            // Saat ve Takvimi Sayfada Güncelle
-            document.getElementById("clock").textContent = timeString;
-            document.getElementById("calendar").textContent = dateString;
-        }
-
-        // Saat ve Takvimi her saniye güncelle
-        setInterval(updateClockAndCalendar, 1000);
-
-        // İlk güncelleme
-        updateClockAndCalendar();
-    </script>
 </body>
 </html>
