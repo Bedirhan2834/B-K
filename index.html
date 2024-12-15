@@ -3,7 +3,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Social Hub</title>
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <style>
         body {
@@ -19,6 +19,7 @@
             align-items: center;
             height: 100vh;
             text-align: center;
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
 
         .container {
@@ -55,6 +56,26 @@
             letter-spacing: 2px;
         }
 
+        /* Tema Seçim Menüsü */
+        .theme-selector {
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            z-index: 1000;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: #fff;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .theme-selector select {
+            background-color: #007fff;
+            color: white;
+            border: none;
+            padding: 5px;
+            border-radius: 5px;
+        }
+
         .social-icons {
             display: flex;
             justify-content: space-between;
@@ -77,6 +98,7 @@
             flex-direction: column;
             align-items: center;
             transition: all 0.3s ease;
+            position: relative;
         }
 
         .social-icons img {
@@ -93,78 +115,100 @@
             transition: all 0.3s ease;
         }
 
-        /* Hover efekti ve renk değişimi */
+        /* Hover efekti */
         .social-icons a:hover img {
-            transform: scale(1.2);
-            filter: brightness(1.5) drop-shadow(0 0 10px #ffffff);
+            transform: scale(1.2); /* İkonu büyütme */
+            filter: brightness(1.5) drop-shadow(0 0 10px #ffffff); /* Parlaklık ve gölge ekleme */
         }
 
         .social-icons a:hover p {
-            transform: scale(1.2);
-            color: #ffcc00;
+            transform: scale(1.2); /* Yazıyı büyütme */
+            color: #ffcc00; /* Renk değişimi */
         }
 
-        /* Mobil uyumlu düzenlemeler */
-        @media (max-width: 768px) {
-            .container {
-                max-width: 90%;
-                margin-top: 0;
-            }
+        /* Daha belirgin bir hover efekti için arka plan halkası */
+        .social-icons a:hover::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 120%;
+            height: 120%;
+            background-color: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            animation: pulse 1.5s infinite; /* Pürüzsüz animasyon ekleniyor */
+        }
 
-            h1 {
-                font-size: 2.5rem;
+        /* Hover halkası animasyonu */
+        @keyframes pulse {
+            0% {
+                transform: translate(-50%, -50%) scale(0.8);
+                opacity: 0.6;
             }
-
-            .social-icons {
-                gap: 15px;
-                justify-content: center;
+            50% {
+                transform: translate(-50%, -50%) scale(1.2);
+                opacity: 1;
             }
-
-            .social-icons .column {
-                width: 45%;
-                margin-bottom: 15px;
-            }
-
-            .social-icons img {
-                width: 45px;
-                height: 45px;
-            }
-
-            .social-icons p {
-                font-size: 1rem;
-            }
-
-            body {
-                background-image: url(https://i.pinimg.com/originals/6f/bc/f9/6fbcf93549ebfb8660953e347e3691f4.gif);
-                background-size: cover;
-                background-position: center;
+            100% {
+                transform: translate(-50%, -50%) scale(0.8);
+                opacity: 0.6;
             }
         }
 
-        @media (max-width: 480px) {
-            h1 {
-                font-size: 2rem;
-            }
-
-            .social-icons img {
-                width: 40px;
-                height: 40px;
-            }
-
-            .social-icons p {
-                font-size: 0.9rem;
-            }
+        /* Default Theme */
+        body {
+            background-image: url(https://i.pinimg.com/originals/12/b2/3a/12b23a7752e8a7a4464c1ff5e596237f.gif);
+            color: #ffffff;
         }
+
+        /* Dark Theme */
+        .dark-theme {
+            background-color: #333;
+            color: #ddd;
+        }
+
+        .dark-theme .social-icons a {
+            color: #ddd;
+        }
+
+        /* Colorful Theme */
+        .colorful-theme {
+            background-color: #ffcc00;
+            color: #333;
+        }
+
+        .colorful-theme .social-icons a {
+            color: #333;
+        }
+
+        /* Custom styles for theme-related adjustments */
+        .dark-theme h1 {
+            color: #fff;
+        }
+
+        .colorful-theme h1 {
+            color: #1a1a1a;
+        }
+
     </style>
 </head>
 
 <body>
+    <div class="theme-selector">
+        <label for="theme">Choose a Theme: </label>
+        <select id="theme" onchange="changeTheme(event)">
+            <option value="default">Default</option>
+            <option value="dark">Dark Mode</option>
+            <option value="colorful">Colorful Theme</option>
+        </select>
+    </div>
+
     <div class="container">
         <div class="background-layer"></div>
         <h1 class="animate__animated animate__flip">Social Hub</h1>
 
         <div class="social-icons animate__bounceIn">
-            <!-- İlk grup: Instagram, TikTok, Spotify -->
             <div class="column">
                 <a href="https://www.instagram.com/bedirhan_kymk_/" target="_blank">
                     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Instagram_logo_2022.svg/600px-Instagram_logo_2022.svg.png" alt="Instagram">
@@ -180,7 +224,6 @@
                 </a>
             </div>
 
-            <!-- İkinci grup: YouTube, Discord, Twitch -->
             <div class="column">
                 <a href="https://www.youtube.com/@Bedirhan_kymk_" target="_blank">
                     <img src="https://www.svgrepo.com/show/343537/youtube-player-multimedia-video-communication-interaction.svg" alt="YouTube">
@@ -197,5 +240,33 @@
             </div>
         </div>
     </div>
+
+    <script>
+        function changeTheme(event) {
+            const theme = event.target.value;
+            
+            // Temaya göre sınıfları değiştir
+            document.body.classList.remove('dark-theme', 'colorful-theme');
+            if (theme === 'dark') {
+                document.body.classList.add('dark-theme');
+            } else if (theme === 'colorful') {
+                document.body.classList.add('colorful-theme');
+            } else {
+                document.body.classList.remove('dark-theme', 'colorful-theme');
+            }
+
+            // Temayı localStorage'a kaydet
+            localStorage.setItem('theme', theme);
+        }
+
+        // Sayfa yüklenince seçilen temayı uygula
+        window.onload = () => {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme) {
+                document.getElementById('theme').value = savedTheme;
+                changeTheme({ target: { value: savedTheme } });
+            }
+        };
+    </script>
 </body>
 </html>
