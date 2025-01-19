@@ -278,36 +278,37 @@
         <div id="calendar" class="calendar"></div>
     </div>
 
-    <script>
-        // Saat ve Takvim Güncelleme Fonksiyonu
-        function updateClockAndCalendar() {
-            const now = new Date();
-            
-            // Saat
-            const hours = String(now.getHours()).padStart(2, '0');
-            const minutes = String(now.getMinutes()).padStart(2, '0');
-            const seconds = String(now.getSeconds()).padStart(2, '0');
-            const timeString = ${hours}:${minutes}:${seconds};
-            
-            // Tarih (Gün/Ay/Yıl)
-            const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-            const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-            const day = days[now.getDay()];
-            const date = now.getDate();
-            const month = months[now.getMonth()];
-            const year = now.getFullYear();
-            const dateString = ${day}, ${month} ${date}, ${year};
+   <script>
+    // Saat ve Takvim Güncelleme Fonksiyonu
+    function updateClockAndCalendar() {
+        const now = new Date();
+        
+        // Saat
+        const hours = String(now.getHours()).padStart(2, '0');
+        const minutes = String(now.getMinutes()).padStart(2, '0');
+        const seconds = String(now.getSeconds()).padStart(2, '0');
+        const timeString = `${hours}:${minutes}:${seconds}`;  // Saatin formatı düzeltildi
 
-            // Saat ve Takvimi Sayfada Güncelle
-            document.getElementById("clock").textContent = timeString;
-            document.getElementById("calendar").textContent = dateString;
-        }
+        // Tarih (Gün/Ay/Yıl)
+        const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+        const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+        const day = days[now.getDay()];
+        const date = now.getDate();
+        const month = months[now.getMonth()];
+        const year = now.getFullYear();
+        const dateString = `${day}, ${month} ${date}, ${year}`;  // Tarih formatı da düzeltildi
 
-        // Saat ve Takvimi her saniye güncelle
-        setInterval(updateClockAndCalendar, 1000);
+        // Saat ve Takvimi Sayfada Güncelle
+        document.getElementById("clock").textContent = timeString;
+        document.getElementById("calendar").textContent = dateString;
+    }
 
-        // İlk güncelleme
-        updateClockAndCalendar();
-    </script>
+    // Saat ve Takvimi her saniye güncelle
+    setInterval(updateClockAndCalendar, 1000);
+
+    // İlk güncelleme
+    updateClockAndCalendar();
+</script>
+
 </body>
 </html>
