@@ -19,7 +19,6 @@
             align-items: center;
             height: 100vh;
             text-align: center;
-            transition: background-color 0.3s ease;
         }
 
         .container {
@@ -27,16 +26,6 @@
             max-width: 600px;
             margin-top: -60px;
             position: relative;
-            animation: fadeIn 1s ease;
-        }
-
-        @keyframes fadeIn {
-            0% {
-                opacity: 0;
-            }
-            100% {
-                opacity: 1;
-            }
         }
 
         .background-layer {
@@ -50,12 +39,6 @@
             z-index: -1;
             border-radius: 20px;
             padding-bottom: 400px;
-        }
-
-        /* Gece Modu */
-        .night-mode {
-            background-color: #2c3e50;
-            color: #ecf0f1;
         }
 
         /* PC için padding-bottom değerini arttırma */
@@ -239,42 +222,6 @@
         .calendar {
             margin-top: 5px;
         }
-
-        /* Yorum Kutusu */
-        .comment-box {
-            margin-top: 50px;
-            padding: 15px;
-            background-color: rgba(0, 0, 0, 0.6);
-            border-radius: 10px;
-            width: 60%;
-            margin: 0 auto;
-        }
-
-        .comment-box textarea {
-            width: 100%;
-            height: 100px;
-            background: #f5f5f5;
-            border: none;
-            padding: 10px;
-            border-radius: 10px;
-            font-family: 'Ubuntu', sans-serif;
-            font-size: 1rem;
-            margin-bottom: 10px;
-        }
-
-        .comment-box button {
-            background-color: #007fff;
-            color: white;
-            border: none;
-            padding: 10px 20px;
-            border-radius: 5px;
-            font-size: 1rem;
-            cursor: pointer;
-        }
-
-        .comment-box button:hover {
-            background-color: #1e90ff;
-        }
     </style>
 </head>
 
@@ -310,8 +257,8 @@
                     <img src="https://www.svgrepo.com/show/353655/discord-icon.svg" alt="Discord">
                     <p>Discord</p>
                 </a>
-                <a href="https://kick.com/bedirhan_kymk_" target="_blank">
-                    <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Kick_logo_2023.svg" alt="Kick">
+                <a href="https://kick.com/bedirhan2834" target="_blank">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/d/dd/Kick_logo.svg" alt="Kick">
                     <p>Kick</p>
                 </a>
             </div>
@@ -329,12 +276,6 @@
     <div id="clock-calendar" class="clock-calendar">
         <div id="clock" class="clock"></div>
         <div id="calendar" class="calendar"></div>
-    </div>
-
-    <!-- Yorum Kutusu -->
-    <div class="comment-box">
-        <textarea placeholder="Leave a comment..."></textarea>
-        <button type="submit">Submit</button>
     </div>
 
     <script>
@@ -360,13 +301,6 @@
             // Saat ve Takvimi Sayfada Güncelle
             document.getElementById("clock").textContent = timeString;
             document.getElementById("calendar").textContent = dateString;
-
-            // Gece Modu
-            if (hours >= 18 || hours < 6) {
-                document.body.classList.add('night-mode');
-            } else {
-                document.body.classList.remove('night-mode');
-            }
         }
 
         // Saat ve Takvimi her saniye güncelle
